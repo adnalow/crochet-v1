@@ -28,7 +28,7 @@ export default function page() {
             <ButtonOptionsIcon image="/logoOptions/all.png" isShadow={false} />
           </div>
         </div>
-        <div className="w-full max-h-[580px] min-h-[250px] overflow-y-auto rounded-lg shadow-lg bg-white px-[100px] py-10 scrollbar-thin scrollbar-thumb-gray-400 scrollbar-track-gray-200">
+        <div className="w-full max-h-[570px] min-h-[250px] overflow-y-auto rounded-lg shadow-xlg bg-white px-[100px] py-10 scrollbar-thin scrollbar-thumb-gray-400 scrollbar-track-gray-200">
           <div className="grid grid-cols-3 gap-8">
             {flowers.map((flower, index) => (
               <CreationCard
