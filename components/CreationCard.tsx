@@ -40,6 +40,7 @@ export default function CreationCard({
           <ButtonOptionsIcon
             image={`/logoOptions/${type}.png`}
             isShadow={true}
+            onClick={() => {}}
           />
           <Link href={`/creations/${name.replace(/\s+/g, "-").toLowerCase()}`}>
             <Button className="bg-primaryColor text-white font-inter font-semibold rounded-2xl text-lg shadow-lg min-w-[150px]">

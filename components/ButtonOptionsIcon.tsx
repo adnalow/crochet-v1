@@ -4,21 +4,22 @@ import { Button } from "@/components/ui/button";
 type params = {
   image: string;
   isShadow: boolean;
+  onClick: () => void;
 };
 
-export default function ButtonOptionsIcon({ image, isShadow }: params) {
+export default function ButtonOptionsIcon({
+  image,
+  isShadow,
+  onClick,
+}: params) {
   return (
-    <>
-      {isShadow && (
-        <Button className="rounded-full bg-white overflow-hidden h-max shadow-lg">
-          <img src={image} width={25} height={40} alt="search" />
-        </Button>
-      )}
-      {!isShadow && (
-        <Button className="rounded-full bg-white overflow-hidden h-max">
-          <img src={image} width={25} height={40} alt="search" />
-        </Button>
-      )}
-    </>
+    <Button
+      className={`rounded-full bg-white overflow-hidden h-max ${
+        isShadow ? "shadow-lg" : ""
+      }`}
+      onClick={onClick} // Move onClick here
+    >
+      <img src={image} width={30} height={40} alt="search" />
+    </Button>
   );
 }
