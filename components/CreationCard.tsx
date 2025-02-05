@@ -7,11 +7,10 @@ import { Button } from "./ui/button";
 import Link from "next/link";
 
 function slugify(text: string) {
-  console.log(text);
   return text
     .toLowerCase()
-    .replace(/\s+/g, "-") // Replace spaces with dashes
-    .replace(/[^\w-]+/g, ""); // Remove special characters
+    .replace(/\s+/g, "-")
+    .replace(/[^\w-]+/g, "");
 }
 
 export default function CreationCard({
@@ -21,11 +20,11 @@ export default function CreationCard({
   description,
   image,
 }: Flower) {
-  const slugifiedName = slugify(name); // Convert name to a slug
   return (
-    <Card className="min-w-[400px] max-w-[500px] min-h-max p-10 bg-whitishColor rounded-2xl shadow-xlg font-inter font-semibold">
-      <div className="flex flex-col gap-2 min-h-[350px]">
-        <div className="relative w-full min-h-[200px] max-h-full    ">
+    <Card className="w-full bg-whitishColor rounded-2xl shadow-xlg font-inter font-semibold p-4 md:p-6 lg:p-10">
+      <div className="flex flex-col gap-4">
+        {/* Image Container */}
+        <div className="relative w-full aspect-square rounded-lg overflow-hidden">
           <Image
             src={image}
             alt={name}
@@ -33,17 +32,21 @@ export default function CreationCard({
             className="object-cover object-center"
           />
         </div>
-        <p className="flex-grow text-black italic text-lg">
+
+        {/* Description */}
+        <p className="flex-grow text-black italic text-base md:text-lg min-h-[3rem]">
           {briefDescription}
         </p>
-        <div className="flex justify-between items-center">
+
+        {/* Bottom Section */}
+        <div className="flex justify-between items-center gap-4">
           <ButtonOptionsIcon
             image={`/logoOptions/${type}.png`}
             isShadow={true}
             onClick={() => {}}
           />
-          <Link href={`/creations/${name.replace(/\s+/g, "-").toLowerCase()}`}>
-            <Button className="bg-primaryColor text-white font-inter font-semibold rounded-2xl text-lg shadow-lg min-w-[150px]">
+          <Link href={`/creations/${slugify(name)}`} className="flex-shrink-0">
+            <Button className="bg-primaryColor text-white font-inter font-semibold rounded-2xl text-base md:text-lg shadow-lg min-w-[100px] md:min-w-[150px]">
               Details
             </Button>
           </Link>

@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Inter, Roboto, Montserrat } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/header";
+import Footer from "@/components/Footer";
 
 const getInter = Inter({
   variable: "--font-inter",
@@ -32,11 +33,12 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${getMontserrat.variable} ${getRoboto.variable}  ${getInter.variable}`}
+        className={`${getMontserrat.variable} ${getRoboto.variable} ${getInter.variable}`}
       >
-        <div className="flex flex-col min-h-screen">
+        <div className="flex flex-col min-h-screen w-full">
           <Header />
-          {children}
+          <main className="flex-1 w-full">{children}</main>
+          <Footer />
         </div>
       </body>
     </html>

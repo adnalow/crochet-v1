@@ -5,6 +5,10 @@
 
 
 @layer base {
+  body {
+    background-color: #F5F5F5 ;
+  }
+
   :root {
     --background: 0 0% 100%;
     --foreground: 224 71.4% 4.1%;

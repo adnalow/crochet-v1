@@ -2,34 +2,32 @@
 
 import ButtonOptionsIcon from "@/components/ButtonOptionsIcon";
 import CreationCard from "@/components/CreationCard";
-import { Button } from "@/components/ui/button";
 import { flowers } from "@/data/flowers";
-import Image from "next/image";
 import React, { useState } from "react";
 
 export default function Page() {
-  // State to track the selected filter type
   const [selectedType, setSelectedType] = useState("all");
 
-  // Function to handle button clicks
   const handleFilterClick = (type: string) => {
-    console.log("Selected type:", type); // Debug: log the selected filter type
     setSelectedType(type);
   };
 
-  // Filter the flowers array based on the selected type
   const filteredFlowers =
     selectedType === "all"
       ? flowers
       : flowers.filter((flower) => flower.type === selectedType);
 
   return (
-    <div className="flex max-w-screen max-h-screen flex-col items-center mt-4 px-[80px]">
-      <div className="flex flex-col items-center gap-16 w-[100%]">
-        <div className="flex flex-col items-center gap-7">
-          <h1 className="font-montserrat font-bold text-7xl">Creations</h1>
-          <div className="w-[600px] h-fit bg-primaryColor rounded-md p-2 items-center justify-between flex shadow-xlg">
-            {/* Buttons for filtering */}
+    <div className="flex flex-col items-center w-full px-4 md:px-6 lg:px-8 py-4 md:py-6">
+      <div className="flex flex-col items-center gap-8 md:gap-16 w-full max-w-7xl">
+        {/* Header Section */}
+        <div className="flex flex-col items-center gap-4 md:gap-7">
+          <h1 className="font-montserrat font-bold text-4xl md:text-5xl lg:text-7xl">
+            Creations
+          </h1>
+
+          {/* Filter Buttons */}
+          <div className="w-full max-w-[600px] h-fit bg-primaryColor rounded-md p-2 flex items-center justify-between gap-2 shadow-xlg overflow-x-auto scrollbar-thin scrollbar-thumb-gray-400 scrollbar-track-gray-200">
             <ButtonOptionsIcon
               image="/logoOptions/tulips.png"
               isShadow={false}
@@ -57,9 +55,10 @@ export default function Page() {
             />
           </div>
         </div>
-        <div className="w-full max-h-[570px] min-h-[250px] overflow-y-auto rounded-lg shadow-xlg bg-white px-[100px] py-10 scrollbar-thin scrollbar-thumb-gray-400 scrollbar-track-gray-200">
-          <div className="grid grid-cols-3 gap-8">
-            {/* Render filtered flowers */}
+
+        {/* Cards Container */}
+        <div className="w-full h-[calc(100vh-300px)] overflow-y-auto rounded-lg shadow-xlg bg-white p-4 md:p-6 lg:p-10 scrollbar-thin scrollbar-thumb-gray-400 scrollbar-track-gray-200">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 lg:gap-8">
             {filteredFlowers.map((flower, index) => (
               <CreationCard
                 key={index}

@@ -5,85 +5,87 @@ import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
-import router from "next/router";
 
 export default function Home() {
   return (
-    <div className="grid grid-cols-1">
+    <div className="flex flex-col xl:flex-row w-full max-w-7xl mx-auto min-h-[calc(100vh-200px)] px-4 md:px-6 lg:px-8 py-8 md:py-12 gap-8">
       {/* Main Content */}
-      <div className="relative grid grid-cols-12 grid-rows-12 px-[80px] mt-6 h-[809px] overflow-hidden">
+      <div className="flex flex-col flex-1 gap-6 justify-center">
         {/* Text Content */}
-        <div className="col-span-8 row-start-5 row-span-2 flex flex-col gap-2 ">
-          <h2 className="font-inter font-semibold text-4xl">
+        <div className="flex flex-col gap-2">
+          <h2 className="font-inter font-semibold text-2xl md:text-3xl">
             Turn Your Idea to a
           </h2>
-          <h1 className="font-montserrat font-bold text-9xl">
+          <h1 className="font-montserrat font-bold text-4xl md:text-5xl lg:text-6xl">
             Meaningful
             <span className="text-primaryColor"> Craft</span>
           </h1>
         </div>
 
-        {/* Image Content */}
-        <Image
-          src="/manHome.png"
-          width={800}
-          height={600}
-          alt="Hero Image"
-          className="absolute col-span-4 col-start-8 row-start-1 row-span-12 self-center ml-[140px] z-20"
-        />
-
         {/* Paragraph */}
-        <div className="col-span-5 row-start-9 row-span-1">
-          <p className="font-inter font-semibold italic text-grayColor text-2xl">
+        <div className="max-w-[600px]">
+          <p className="font-inter font-semibold italic text-grayColor text-base md:text-lg">
             Discover the art of handmade creativity! Explore unique, handcrafted
             treasures made with love and care.
           </p>
         </div>
 
-        {/* Button */}
-        <div className="col-span-5 row-start-10 row-span-1 mt-6">
-          <div className="flex gap-4">
-            <Button
-              asChild
-              className="w-[350px] bg-whitishColor  shadow-lg rounded-sm py-7 hover:bg-white"
-            >
-              <div className="flex gap-[50px] justify-between">
-                <Link
-                  href="/"
-                  className="font-inter font-semibold text-black text-lg"
-                >
-                  Connect with us
-                </Link>
+        {/* Buttons */}
+        <div className="flex flex-col sm:flex-row gap-4 w-full max-w-[800px]">
+          <Button
+            asChild
+            className="w-full sm:max-w-[350px] bg-whitishColor shadow-lg rounded-sm py-4 md:py-7 hover:bg-white"
+          >
+            <div className="flex justify-between items-center gap-4">
+              <Link
+                href="/"
+                className="font-inter font-semibold text-black text-base md:text-lg"
+              >
+                Connect with us
+              </Link>
+              <Button
+                className="bg-primaryColor rounded-sm p-3 md:p-5 hover:bg-primaryColor hover:shadow-lg transition"
+                size="icon"
+              >
+                <ArrowRight className="h-5 w-5 md:h-6 md:w-6 text-white" />
+              </Button>
+            </div>
+          </Button>
+
+          <Button
+            asChild
+            className="w-full sm:max-w-[350px] bg-whitishColor shadow-lg rounded-sm py-4 md:py-7 hover:bg-white"
+          >
+            <div className="flex justify-between items-center gap-4">
+              <Link
+                href="/creations"
+                className="font-inter font-semibold text-black text-base md:text-lg"
+              >
+                View Works
+              </Link>
+              <Link href="/creations">
                 <Button
-                  className="bg-primaryColor rounded-sm p-5 hover:bg-primaryColor hover:shadow-lg transition"
+                  className="bg-primaryColor rounded-sm p-3 md:p-5 hover:bg-primaryColor hover:shadow-lg transition"
                   size="icon"
                 >
-                  <ArrowRight size={30} className="text" />
+                  <ArrowRight className="h-5 w-5 md:h-6 md:w-6 text-white" />
                 </Button>
-              </div>
-            </Button>
-            <Button
-              asChild
-              className="w-[350px] bg-whitishColor  shadow-lg rounded-sm py-7 hover:bg-white"
-            >
-              <div className="flex gap-[50px] justify-between">
-                <Link
-                  href="/creations"
-                  className="font-inter font-semibold text-black text-lg"
-                >
-                  View Works
-                </Link>
-                <Link href="/creations">
-                  <Button
-                    className="bg-primaryColor rounded-sm p-5 hover:bg-primaryColor hover:shadow-lg transition"
-                    size="icon"
-                  >
-                    <ArrowRight size={30} className="text-white" />
-                  </Button>
-                </Link>
-              </div>
-            </Button>
-          </div>
+              </Link>
+            </div>
+          </Button>
+        </div>
+      </div>
+
+      {/* Image Section */}
+      <div className="hidden xl:flex xl:items-end xl:justify-center xl:w-1/3">
+        <div className="relative w-full max-w-[400px] aspect-[3/4]">
+          <Image
+            src="/manHome.png"
+            fill
+            alt="Hero Image"
+            className="object-contain"
+            priority
+          />
         </div>
       </div>
     </div>
