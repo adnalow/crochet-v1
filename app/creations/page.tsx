@@ -4,6 +4,7 @@ import ButtonOptionsIcon from "@/components/ButtonOptionsIcon";
 import CreationCard from "@/components/CreationCard";
 import { flowers } from "@/data/flowers";
 import React, { useState } from "react";
+import { cn } from "@/lib/utils";
 
 export default function Page() {
   const [selectedType, setSelectedType] = useState("all");
@@ -17,6 +18,18 @@ export default function Page() {
       ? flowers
       : flowers.filter((flower) => flower.type === selectedType);
 
+  const filterOptions = [
+    { type: "tulips", image: "/logoOptions/tulips.png", label: "Tulips" },
+    { type: "rose", image: "/logoOptions/rose.png", label: "Roses" },
+    {
+      type: "sunflower",
+      image: "/logoOptions/sunflower.png",
+      label: "Sunflowers",
+    },
+    { type: "orchids", image: "/logoOptions/orchids.png", label: "Orchids" },
+    { type: "all", image: "/logoOptions/all.png", label: "All" },
+  ];
+
   return (
     <div className="flex flex-col items-center w-full px-4 md:px-6 lg:px-8 py-4 md:py-6">
       <div className="flex flex-col items-center gap-8 md:gap-16 w-full max-w-7xl">
@@ -27,32 +40,37 @@ export default function Page() {
           </h1>
 
           {/* Filter Buttons */}
-          <div className="w-full max-w-[600px] h-fit bg-primaryColor rounded-md p-2 flex items-center justify-between gap-2 shadow-xlg overflow-x-auto scrollbar-thin scrollbar-thumb-gray-400 scrollbar-track-gray-200">
-            <ButtonOptionsIcon
-              image="/logoOptions/tulips.png"
-              isShadow={false}
-              onClick={() => handleFilterClick("tulips")}
-            />
-            <ButtonOptionsIcon
-              image="/logoOptions/rose.png"
-              isShadow={false}
-              onClick={() => handleFilterClick("rose")}
-            />
-            <ButtonOptionsIcon
-              image="/logoOptions/sunflower.png"
-              isShadow={false}
-              onClick={() => handleFilterClick("sunflower")}
-            />
-            <ButtonOptionsIcon
-              image="/logoOptions/orchids.png"
-              isShadow={false}
-              onClick={() => handleFilterClick("orchids")}
-            />
-            <ButtonOptionsIcon
-              image="/logoOptions/all.png"
-              isShadow={false}
-              onClick={() => handleFilterClick("all")}
-            />
+          <div className="w-full max-w-[600px] bg-white rounded-2xl p-3 flex items-center justify-between gap-3 shadow-xlg overflow-x-auto scrollbar-thin scrollbar-thumb-gray-400 scrollbar-track-gray-200">
+            {filterOptions.map((option) => (
+              <button
+                key={option.type}
+                onClick={() => handleFilterClick(option.type)}
+                className={cn(
+                  "flex flex-col items-center gap-2 min-w-[80px] p-2 rounded-xl transition-all duration-200",
+                  selectedType === option.type
+                    ? "bg-primaryColor shadow-lg scale-105"
+                    : "hover:bg-gray-100"
+                )}
+              >
+                <div className="w-10 h-10 md:w-12 md:h-12 relative rounded-full bg-white p-2 shadow-md">
+                  <img
+                    src={option.image}
+                    alt={option.label}
+                    className="w-full h-full object-contain"
+                  />
+                </div>
+                <span
+                  className={cn(
+                    "text-xs md:text-sm font-medium whitespace-nowrap",
+                    selectedType === option.type
+                      ? "text-white"
+                      : "text-gray-600"
+                  )}
+                >
+                  {option.label}
+                </span>
+              </button>
+            ))}
           </div>
         </div>
 
