@@ -3,10 +3,16 @@
 import { useParams, useRouter } from "next/navigation"; // For Next.js 13+ App Router
 import { flowers } from "@/data/flowers";
 import Image from "next/image";
+import { useCart } from "@/context/CartContext";
+import { Button } from "@/components/ui/button";
+import { useState } from "react";
+import { ShoppingCart } from "lucide-react";
 
 export default function CreationDetailPage() {
   const params = useParams();
   const router = useRouter();
+  const { addToCart } = useCart();
+  const [isAdding, setIsAdding] = useState(false);
   const { id } = params as { id: string }; // Ensure `id` exists
 
   if (!id) {
@@ -28,6 +34,21 @@ export default function CreationDetailPage() {
       </div>
     );
   }
+
+  const handleAddToCart = () => {
+    setIsAdding(true);
+    addToCart({
+      id: flower.name.toLowerCase().replace(/\s+/g, "-"),
+      name: flower.name,
+      price: flower.price,
+      image: flower.image,
+    });
+
+    // Reset button state after 1 second
+    setTimeout(() => {
+      setIsAdding(false);
+    }, 1000);
+  };
 
   return (
     <div className="container mx-auto px-4 py-8 max-w-6xl">
@@ -92,9 +113,20 @@ export default function CreationDetailPage() {
                 {flower.description}
               </p>
             </div>
-            <button className="mt-8 w-full bg-primaryColor text-whitishColor py-3 px-6 rounded-lg hover:bg-secondaryColor transition-colors duration-200">
-              Add to Cart
-            </button>
+            <Button
+              className={`mt-8 w-full py-6 text-base font-semibold transition-all duration-200 ${
+                isAdding
+                  ? "bg-green-600 hover:bg-green-700"
+                  : "bg-primaryColor hover:bg-primaryColor/90"
+              }`}
+              onClick={handleAddToCart}
+              disabled={isAdding}
+            >
+              <span className="flex items-center justify-center gap-2">
+                <ShoppingCart className="h-5 w-5" />
+                {isAdding ? "Added to Cart!" : "Add to Cart"}
+              </span>
+            </Button>
           </div>
         </div>
       </div>
