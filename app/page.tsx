@@ -32,47 +32,37 @@ export default function Home() {
 
         {/* Buttons */}
         <div className="flex flex-col sm:flex-row gap-4 w-full max-w-[800px]">
-          <Button
-            asChild
-            className="w-full sm:max-w-[350px] bg-whitishColor shadow-lg rounded-sm py-4 md:py-7 hover:bg-white"
-          >
-            <div className="flex justify-between items-center gap-4">
-              <Link
-                href="/"
-                className="font-inter font-semibold text-black text-base md:text-lg"
-              >
-                Connect with us
-              </Link>
-              <Button
-                className="bg-primaryColor rounded-sm p-3 md:p-5 hover:bg-primaryColor hover:shadow-lg transition"
-                size="icon"
-              >
-                <ArrowRight className="h-5 w-5 md:h-6 md:w-6 text-white" />
-              </Button>
-            </div>
-          </Button>
+          <Link href="/contact" className="w-full sm:max-w-[350px]">
+            <Button
+              className="w-full bg-gradient-to-r from-white to-gray-50 hover:from-gray-50 hover:to-white shadow-lg group relative overflow-hidden border border-gray-100"
+              variant="ghost"
+            >
+              <div className="flex items-center justify-between w-full px-4 py-3">
+                <span className="font-inter font-semibold text-gray-800 text-base">
+                  Connect with us
+                </span>
+                <div className="bg-primaryColor rounded p-2 transition-all duration-300 ease-in-out transform group-hover:translate-x-1 group-hover:shadow-md">
+                  <ArrowRight className="h-5 w-5 text-white" />
+                </div>
+              </div>
+            </Button>
+          </Link>
 
-          <Button
-            asChild
-            className="w-full sm:max-w-[350px] bg-whitishColor shadow-lg rounded-sm py-4 md:py-7 hover:bg-white"
-          >
-            <div className="flex justify-between items-center gap-4">
-              <Link
-                href="/creations"
-                className="font-inter font-semibold text-black text-base md:text-lg"
-              >
-                View Works
-              </Link>
-              <Link href="/creations">
-                <Button
-                  className="bg-primaryColor rounded-sm p-3 md:p-5 hover:bg-primaryColor hover:shadow-lg transition"
-                  size="icon"
-                >
-                  <ArrowRight className="h-5 w-5 md:h-6 md:w-6 text-white" />
-                </Button>
-              </Link>
-            </div>
-          </Button>
+          <Link href="/creations" className="w-full sm:max-w-[350px]">
+            <Button
+              className="w-full bg-gradient-to-r from-white to-gray-50 hover:from-gray-50 hover:to-white shadow-lg group relative overflow-hidden border border-gray-100"
+              variant="ghost"
+            >
+              <div className="flex items-center justify-between w-full px-4 py-3">
+                <span className="font-inter font-semibold text-gray-800 text-base">
+                  View Works
+                </span>
+                <div className="bg-primaryColor rounded p-2 transition-all duration-300 ease-in-out transform group-hover:translate-x-1 group-hover:shadow-md">
+                  <ArrowRight className="h-5 w-5 text-white" />
+                </div>
+              </div>
+            </Button>
+          </Link>
         </div>
       </div>
 
