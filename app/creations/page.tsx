@@ -19,6 +19,7 @@ export default function Page() {
       : flowers.filter((flower) => flower.type === selectedType);
 
   const filterOptions = [
+    { type: "all", image: "/logoOptions/all.png", label: "All" },
     { type: "tulips", image: "/logoOptions/tulips.png", label: "Tulips" },
     { type: "rose", image: "/logoOptions/rose.png", label: "Roses" },
     {
@@ -27,7 +28,6 @@ export default function Page() {
       label: "Sunflowers",
     },
     { type: "orchids", image: "/logoOptions/orchids.png", label: "Orchids" },
-    { type: "all", image: "/logoOptions/all.png", label: "All" },
   ];
 
   return (

@@ -65,7 +65,7 @@ export default function Header() {
               </li>
               <li>
                 <Link
-                  href="/about"
+                  href="/contact"
                   className="hover:text-primaryColor transition-colors"
                 >
                   Contact

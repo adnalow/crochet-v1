@@ -14,10 +14,10 @@ export default function ButtonOptionsIcon({
 }: params) {
   return (
     <Button
-      className={`rounded-full bg-white overflow-hidden h-max ${
+      className={`rounded-full bg-white overflow-hidden h-max hover:bg-white hover:opacity-100 ${
         isShadow ? "shadow-lg" : ""
       }`}
-      onClick={onClick} // Move onClick here
+      onClick={onClick}
     >
       <img src={image} width={30} height={40} alt="search" />
     </Button>
