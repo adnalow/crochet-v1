@@ -70,7 +70,7 @@ export default function Header() {
 
             <div className="flex items-center gap-2">
               {/* Cart Icon */}
-              <CartIcon itemCount={0} />
+              <CartIcon />
 
               {/* Mobile Menu Button */}
               <Button
