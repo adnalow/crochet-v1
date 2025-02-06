@@ -21,10 +21,10 @@ export default function CreationCard({
   image,
 }: Flower) {
   return (
-    <Card className="w-full h-full bg-whitishColor rounded-2xl shadow-xlg font-inter font-semibold p-4 md:p-6 lg:p-10">
+    <Card className="w-full h-full bg-white rounded-2xl shadow-md hover:shadow-lg transition-shadow duration-200 font-inter p-4">
       <div className="flex flex-col h-full">
-        {/* Image Container - Fixed aspect ratio */}
-        <div className="relative w-full aspect-square rounded-lg overflow-hidden flex-shrink-0">
+        {/* Image Container */}
+        <div className="relative w-full aspect-[4/3] rounded-lg overflow-hidden bg-gray-100">
           <Image
             src={image}
             alt={name}
@@ -33,15 +33,15 @@ export default function CreationCard({
           />
         </div>
 
-        {/* Content Container - Flexible height */}
-        <div className="flex flex-col flex-grow justify-between gap-4 mt-4">
-          {/* Description - Will expand based on content */}
-          <p className="text-black italic text-base md:text-lg line-clamp-3">
+        {/* Content Container */}
+        <div className="flex flex-col flex-grow justify-between mt-4">
+          {/* Description */}
+          <p className="text-gray-700 text-sm leading-relaxed min-h-[3em] mb-4">
             {briefDescription}
           </p>
 
-          {/* Bottom Section - Fixed height */}
-          <div className="flex justify-between items-center gap-4 mt-auto">
+          {/* Bottom Section */}
+          <div className="flex justify-between items-center">
             <ButtonOptionsIcon
               image={`/logoOptions/${type}.png`}
               isShadow={true}
@@ -51,8 +51,8 @@ export default function CreationCard({
               href={`/creations/${slugify(name)}`}
               className="flex-shrink-0"
             >
-              <Button className="bg-primaryColor text-white font-inter font-semibold rounded-2xl text-base md:text-lg shadow-lg min-w-[100px] md:min-w-[150px]">
-                Details
+              <Button className="bg-primaryColor hover:bg-primaryColor/90 text-white font-medium rounded-xl px-6 py-2 text-sm">
+                DETAILS
               </Button>
             </Link>
           </div>

@@ -75,8 +75,8 @@ export default function Page() {
         </div>
 
         {/* Cards Container */}
-        <div className="w-full h-[calc(100vh-300px)] overflow-y-auto rounded-lg shadow-xlg bg-white p-4 md:p-6 lg:p-10 scrollbar-thin scrollbar-thumb-gray-400 scrollbar-track-gray-200">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 lg:gap-8">
+        <div className="w-full min-h-[calc(100vh-300px)] bg-[#F5F5F5] p-4 md:p-6 lg:p-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 lg:gap-10 max-w-[1400px] mx-auto">
             {filteredFlowers.map((flower, index) => (
               <CreationCard
                 key={index}
