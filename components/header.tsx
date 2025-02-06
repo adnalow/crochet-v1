@@ -29,56 +29,58 @@ export default function Header() {
             </h1>
           </Link>
 
-          {/* Desktop Navigation */}
-          <nav className="hidden md:block flex-1 max-w-2xl ml-8">
-            <ul className="flex justify-center gap-6 text-grayColor font-inter font-semibold text-sm lg:text-base">
-              <li>
-                <Link
-                  href="/"
-                  className="hover:text-primaryColor transition-colors"
-                >
-                  Home
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/about"
-                  className="hover:text-primaryColor transition-colors"
-                >
-                  About
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/creations"
-                  className="hover:text-primaryColor transition-colors"
-                >
-                  Creations
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/contact"
-                  className="hover:text-primaryColor transition-colors"
-                >
-                  Contact
-                </Link>
-              </li>
-            </ul>
-          </nav>
+          <div className="flex justify-between items-center gap-5">
+            {/* Desktop Navigation */}
+            <nav className="hidden md:block flex-1 max-w-2xl ml-8">
+              <ul className="flex justify-center gap-6 text-grayColor font-inter font-semibold text-sm lg:text-base">
+                <li>
+                  <Link
+                    href="/"
+                    className="hover:text-primaryColor transition-colors"
+                  >
+                    Home
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    href="/about"
+                    className="hover:text-primaryColor transition-colors"
+                  >
+                    About
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    href="/creations"
+                    className="hover:text-primaryColor transition-colors"
+                  >
+                    Creations
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    href="/contact"
+                    className="hover:text-primaryColor transition-colors"
+                  >
+                    Contact
+                  </Link>
+                </li>
+              </ul>
+            </nav>
 
-          {/* Right Section: Cart and Mobile Menu */}
-          <div className="flex items-center gap-1 sm:gap-2">
-            <CartIcon />
-            <Button
-              variant="ghost"
-              className="md:hidden p-1.5 sm:p-2"
-              onClick={() => setIsMenuOpen(!isMenuOpen)}
-              aria-expanded={isMenuOpen}
-              aria-label="Toggle menu"
-            >
-              <Menu className="h-6 w-6 sm:h-7 sm:w-7 text-primaryColor" />
-            </Button>
+            {/* Right Section: Cart and Mobile Menu */}
+            <div className="flex items-center gap-1 sm:gap-2">
+              <CartIcon />
+              <Button
+                variant="ghost"
+                className="md:hidden p-1.5 sm:p-2"
+                onClick={() => setIsMenuOpen(!isMenuOpen)}
+                aria-expanded={isMenuOpen}
+                aria-label="Toggle menu"
+              >
+                <Menu className="h-6 w-6 sm:h-7 sm:w-7 text-primaryColor" />
+              </Button>
+            </div>
           </div>
         </div>
 
